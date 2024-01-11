@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handlebars Demo</title>
+</head>
+<body>
+    <div id="content"></div>
+
+    <!-- Incluye Handlebars.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+    <!-- Script de Handlebars -->
+    <script type="text/x-handlebars-template" id="template">
+        <h1>{{title}}</h1>
+        <p>{{description}}</p>
+    </script>
+
+    <!-- Script para aplicar la plantilla -->
+    <script type="text/javascript">
+        // Datos para la plantilla
+        var data = {
+            title: "Página con Handlebars",
+            description: "Esta página utiliza Handlebars para simplificar la estructura del código HTML."
+        };
+
+        // Obtén la plantilla y compílala
+        var source = document.getElementById('template').innerHTML;
+        var template = Handlebars.compile(source);
+
+        // Aplica la plantilla a los datos y agrega el resultado al contenido
+        var html = template(data);
+        document.getElementById('content').innerHTML = html;
+    </script>
+</body>
+</html>
